@@ -8,7 +8,6 @@ export const MultiStepForm = () => {
     const [formData, setFormData] = useState({
         name: "",
         age: "",
-        //age: How do we get the ageGroup to be stored here?
         //continent: 
     });
 
@@ -38,29 +37,6 @@ export const MultiStepForm = () => {
     };
         console.log(submittedData);
         setCurrentStep(4);
-    }
-
-  // State to track the current step in the form
-  const [currentStep, setCurrentStep] = useState(1);
-
-
-   // Function to move to the next step in the form
-  const nextStep = () => {
-    if (currentStep < 3) setCurrentStep(currentStep + 1);
-  };
-
-  // Function to move to the previous step in the form
-  const prevStep = () => {
-    if (currentStep > 1) setCurrentStep(currentStep - 1);
-  };
-
-    const submitForm = () => {
-        console.log(FormData);
-        const submittedData = `
-            Name: ${formData.name}
-            Age: ${formData.age}
-        `;
-        alert(submittedData);
     }
 
         return (
