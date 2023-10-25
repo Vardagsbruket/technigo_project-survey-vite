@@ -1,8 +1,14 @@
 import { useState } from "react";
 
-export const AgeSpan = () => {
-
+export const AgeSpan = ({ updateFormData, value }) => {
     const [ageGroup, setAgeGroup] = useState();
+
+    const selectAgeGroup = (e) => {
+        const selectedAgeGroup = e.target.value;
+        setAgeGroup(selectedAgeGroup);
+        updateFormData("age", selectedAgeGroup);
+    };
+  
   
     return (
       <div>
@@ -11,7 +17,7 @@ export const AgeSpan = () => {
             <input 
                 type="radio" 
                 value="0-18" 
-                onChange={event => setAgeGroup(event.target.value)}
+                onChange={selectAgeGroup}
                 checked={ageGroup === "0-18"}
             />
             0-18
@@ -20,7 +26,7 @@ export const AgeSpan = () => {
             <input 
                 type="radio" 
                 value="19-30" 
-                onChange={event => setAgeGroup(event.target.value)}
+                onChange={selectAgeGroup}
                 checked={ageGroup === "19-30"}
             />
             19-30
@@ -29,7 +35,7 @@ export const AgeSpan = () => {
             <input 
                 type="radio" 
                 value="31-60" 
-                onChange={event => setAgeGroup(event.target.value)}
+                onChange={selectAgeGroup}
                 checked={ageGroup === "31-60"}
             />
             31-60
@@ -38,7 +44,7 @@ export const AgeSpan = () => {
             <input 
                 type="radio" 
                 value="61-110" 
-                onChange={event => setAgeGroup(event.target.value)}
+                onChange={selectAgeGroup}
                 checked={ageGroup === "61-110"}
             />
             61-110

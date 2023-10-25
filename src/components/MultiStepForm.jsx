@@ -7,12 +7,13 @@ export const MultiStepForm = () => {
     
     const [formData, setFormData] = useState({
         name: "",
+        age: "",
         //age: How do we get the ageGroup to be stored here?
         //continent: 
     });
 
-    const updateFormData = (field, value) => {
-        setFormData((values) => ({...values, [field]: value}));
+    const updateFormData = (key, value) => {
+        setFormData((values) => ({...values, [key]: value}));
     };
     console.log(formData);
 
@@ -34,6 +35,7 @@ export const MultiStepForm = () => {
         console.log(FormData);
         const submittedData = `
             Name: ${formData.name}
+            Age: ${formData.age}
         `;
         alert(submittedData);
     }
@@ -50,7 +52,7 @@ export const MultiStepForm = () => {
                         )}
                         {/* Change this code. */}
                         {currentStep === 2 && (
-                            <AgeSpan />
+                            <AgeSpan value={formData.age} updateFormData={updateFormData} />
                         )}
                         {/* {currentStep === 3 && (
                             <Continent />
