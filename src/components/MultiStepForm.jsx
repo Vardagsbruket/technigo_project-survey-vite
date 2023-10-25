@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Name } from "./Name";
 import { AgeSpan } from "./AgeSpan";
+import { Summary } from "./Summary";
 
 export const MultiStepForm = () => {
 
-    
     const [formData, setFormData] = useState({
         name: "",
         age: "",
@@ -15,7 +15,6 @@ export const MultiStepForm = () => {
     const updateFormData = (key, value) => {
         setFormData((values) => ({...values, [key]: value}));
     };
-    console.log(formData);
 
   // State to track the current step in the form
   const [currentStep, setCurrentStep] = useState(1);
@@ -31,32 +30,36 @@ export const MultiStepForm = () => {
     if (currentStep > 1) setCurrentStep(currentStep - 1);
   };
 
+  //Function to submit input data and store it in submittedData
     const submitForm = () => {
-        console.log(FormData);
-        const submittedData = `
-            Name: ${formData.name}
-            Age: ${formData.age}
-        `;
-        alert(submittedData);
+        const submittedData = {
+            name: formData.name,
+            age:formData.age,
+    };
+        console.log(submittedData);
+        setCurrentStep(4);
     }
 
         return (
-            // Add form template here
             <div>
                 <h1>Tell us about yourself 😃</h1>
                 <div className="inputContainer">
                     <form>
-                        {/* Change this code. */}
+                        {/* Input field - add name */}
                         {currentStep === 1 && (
                             <Name value={formData.name} updateFormData={updateFormData}/>
                         )}
-                        {/* Change this code. */}
+                        {/* Radio buttons - select ageGroup */}
                         {currentStep === 2 && (
                             <AgeSpan value={formData.age} updateFormData={updateFormData} />
                         )}
                         {/* {currentStep === 3 && (
                             <Continent />
                         )} */}
+                        {/* Summary page */}
+                        {currentStep === 4 && (
+                           <Summary formData={formData}/>
+                        )}
 
                     </form>
                     <div className="buttons">
