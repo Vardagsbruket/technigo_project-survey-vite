@@ -1,5 +1,19 @@
+import { useState } from "react";
+
 export const Name = ({ value, updateFormData }) => {
-  const name = (e) => updateFormData("name", e.target.value);
+  const [error, setError] = useState("");
+
+  const updateName = (e) => {
+    // validate value and update form data
+    const re = /^[A-Za-z\s]+$/;
+
+    if (!re.test(e.target.value)) {
+      setError("Please enter a valid name");
+    } else {
+      setError("");
+      updateFormData("name", e.target.value);
+    }
+  };
 
   return (
     <div className="inputContainer">
@@ -10,9 +24,11 @@ export const Name = ({ value, updateFormData }) => {
         id="name"
         name="name"
         value={value}
-        onChange={name}
+        onChange={updateName}
         placeholder="Type your name here please."
       />
+      {/* Display error message */}
+      {error && <p className="error">{error}</p>}
     </div>
   );
 };
