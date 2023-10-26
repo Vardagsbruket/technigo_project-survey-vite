@@ -3,6 +3,7 @@ import { Name } from "./Name";
 import { AgeSpan } from "./AgeSpan";
 import { Summary } from "./Summary";
 import { Continent } from "./Continent";
+import { ProgressBar } from "./ProgressBar";
 
 export const MultiStepForm = () => {
   const [formData, setFormData] = useState({
@@ -41,8 +42,8 @@ export const MultiStepForm = () => {
 
   return (
     <div className="form-container">
+      <ProgressBar currentStep={currentStep} />
       <h1>Tell us about yourself 😃</h1>
-
       <form>
         {/* Input field - add name */}
         {currentStep === 1 && (
@@ -52,6 +53,7 @@ export const MultiStepForm = () => {
         {currentStep === 2 && (
           <AgeSpan value={formData.age} updateFormData={updateFormData} />
         )}
+        {/* Dropdown menu - select continent */}
         {currentStep === 3 && (
           <Continent value={formData.name} updateFormData={updateFormData} />
         )}
@@ -60,7 +62,7 @@ export const MultiStepForm = () => {
       </form>
       <div className="buttons">
         {currentStep > 1 && <button onClick={prevStep}>Back</button>}
-        {currentStep < 4 ? (
+        {currentStep < 3 ? (
           <button onClick={nextStep}>Next</button>
         ) : (
           <button onClick={submitForm}>Submit</button>
@@ -69,21 +71,3 @@ export const MultiStepForm = () => {
     </div>
   );
 };
-
-/**
- *
- *
- * Styling (Styling)
- * Continent component (Pernilla)
- *
- *
- * Age component (Diana)
- * Knappar pre och next (Diana)
- * Summery (Diana)
- *
- * Följfrågor (parprogrammering) (Pernilla kollar)
- *
- * Submit
- *
- *
- */
