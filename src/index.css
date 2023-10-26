@@ -7,9 +7,6 @@
   outline: none;
 }
 
-* :not(body) {
-  scrollbar-color: #979797 transparent;
-}
 :root {
   font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -87,13 +84,19 @@ form input {
   font-size: 1rem;
   border-radius: 30px;
   padding: 1em;
-  margin-bottom: 2em;
+  margin-bottom: 0.3em;
+}
+
+form .error {
+  text-align: center;
+  color: red;
 }
 
 .buttons {
   font-size: 1.2rem;
   display: flex;
   justify-content: center;
+  margin: 0.5em;
 }
 button {
   border: none;
@@ -124,4 +127,20 @@ button:hover {
 
 .radioContainer label {
   margin: 0 0.3em;
+}
+
+/* progressbar */
+.progressContainer {
+  height: 15px;
+  width: 100%;
+  background-color: #e0e0de;
+  border-radius: 50px;
+  margin: 50;
+}
+
+.progressFiller {
+  background-color: pink;
+  height: 100%;
+  border-radius: 50px;
+  transition: width 2s ease-in-out;
 }
