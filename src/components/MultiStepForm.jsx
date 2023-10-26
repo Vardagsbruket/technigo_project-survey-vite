@@ -3,17 +3,20 @@ import { Name } from "./Name";
 import { AgeSpan } from "./AgeSpan";
 import { Summary } from "./Summary";
 import { Continent } from "./Continent";
+import { SubQuestion } from "./SubQuestion";
 
 export const MultiStepForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     age: "",
     continent: "",
+    subquestion: "",
   });
 
-    const updateFormData = (key, value) => {
-        setFormData((values) => ({...values, [key]: value}));
-    };
+  const updateFormData = (key, value) => {
+    setFormData((values) => ({ ...values, [key]: value }));
+  };
+
 
 
 
@@ -22,7 +25,7 @@ export const MultiStepForm = () => {
 
   // Function to move to the next step in the form
   const nextStep = () => {
-    if (currentStep < 3) setCurrentStep(currentStep + 1);
+    if (currentStep < 5) setCurrentStep(currentStep + 1);
   };
 
   // Function to move to the previous step in the form
@@ -36,9 +39,10 @@ export const MultiStepForm = () => {
       name: formData.name,
       age: formData.age,
       continent: formData.continent,
+      subquestion: formData.subquestion,
     };
     console.log(submittedData);
-    setCurrentStep(4);
+    setCurrentStep(5);
   };
 
   return (
@@ -55,14 +59,17 @@ export const MultiStepForm = () => {
           <AgeSpan value={formData.age} updateFormData={updateFormData} />
         )}
         {currentStep === 3 && (
-          <Continent value={formData.name} updateFormData={updateFormData} />
+          <Continent value={formData.continent} updateFormData={updateFormData} />
+        )}
+        {currentStep === 4 && (
+            <SubQuestion continent={formData.continent} value={formData.subquestion} updateFormData={updateFormData} />
         )}
         {/* Summary page */}
-        {currentStep === 4 && <Summary formData={formData} />}
+        {currentStep === 5 && <Summary formData={formData} />}
       </form>
       <div className="buttons">
         {currentStep > 1 && <button onClick={prevStep}>Back</button>}
-        {currentStep < 3 ? (
+        {currentStep < 5 ? (
           <button onClick={nextStep}>Next</button>
         ) : (
           <button onClick={submitForm}>Submit</button>

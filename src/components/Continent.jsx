@@ -4,9 +4,9 @@ export const Continent = ({ updateFormData, value }) => {
   const [selectedContinent, setContinentGroup] = useState();
 
   const selectContinentGroup = (e) => {
-    const selectedAgeGroup = e.target.value;
-    setContinentGroup(selectedAgeGroup);
-    updateFormData("continent", selectedAgeGroup);
+    const selectedContinent = e.target.value;
+    setContinentGroup(selectedContinent);
+    updateFormData("continent", selectedContinent);
   };
 
   return (
@@ -15,6 +15,7 @@ export const Continent = ({ updateFormData, value }) => {
       <div className="selectContainer">
         {/* Add label */}
         <select value={selectedContinent} onChange={selectContinentGroup}>
+          <option value="">Select continent</option>
           <option value="africa">Africa</option>
           <option value="asia">Asia</option>
           <option value="southamerica">South America</option>
