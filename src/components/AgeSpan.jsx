@@ -11,44 +11,50 @@ export const AgeSpan = ({ updateFormData, value }) => {
   
   
     return (
-      <div>
-        How old are you?
-        <label>
-            <input 
-                type="radio" 
-                value="0-18" 
-                onChange={selectAgeGroup}
-                checked={ageGroup === "0-18"}
-            />
-            0-18
-        </label>
-        <label>
-            <input 
-                type="radio" 
-                value="19-30" 
-                onChange={selectAgeGroup}
-                checked={ageGroup === "19-30"}
-            />
-            19-30
-        </label>
-        <label>
-            <input 
-                type="radio" 
-                value="31-60" 
-                onChange={selectAgeGroup}
-                checked={ageGroup === "31-60"}
-            />
-            31-60
-        </label>
-        <label>
-            <input 
-                type="radio" 
-                value="61-110" 
-                onChange={selectAgeGroup}
-                checked={ageGroup === "61-110"}
-            />
-            61-110
-        </label>
-      </div>
+        <fieldset>
+            <legend>How old are you?</legend>
+            <ul className="radioButtons">
+                <li>
+                    <label htmlFor="0-18">0-18</label>
+                        <input 
+                            type="radio" 
+                            value="0-18"
+                            id="0-18" 
+                            onChange={selectAgeGroup}
+                            checked={ageGroup === "0-18"}
+                        />
+                </li>
+                <li>
+                    <label htmlFor="19-30">19-30</label>
+                        <input 
+                            type="radio" 
+                            value="19-30" 
+                            id="19-30"
+                            onChange={selectAgeGroup}
+                            checked={ageGroup === "19-30"}
+                        />
+                </li>
+                <li>
+                    <label htmlFor="31-60">31-60</label>
+                        <input 
+                            type="radio" 
+                            value="31-60"
+                            id="31-60" 
+                            onChange={selectAgeGroup}
+                            checked={ageGroup === "31-60"}
+                        />
+                </li>
+                <li>
+                    <label htmlFor="61-110">61-110</label>
+                        <input 
+                            type="radio" 
+                            value="61-110"
+                            id="61-110" 
+                            onChange={selectAgeGroup}
+                            checked={ageGroup === "61-110"}
+                        /> 
+                </li>
+            </ul>
+        </fieldset>
     );
   };

@@ -15,6 +15,8 @@ export const MultiStepForm = () => {
         setFormData((values) => ({...values, [key]: value}));
     };
 
+
+
   // State to track the current step in the form
   const [currentStep, setCurrentStep] = useState(1);
 
@@ -35,6 +37,7 @@ export const MultiStepForm = () => {
             name: formData.name,
             age:formData.age,
     };
+
         console.log(submittedData);
         setCurrentStep(4);
     }
