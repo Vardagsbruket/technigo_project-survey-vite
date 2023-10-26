@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export const AgeSpan = ({ updateFormData, value }) => {
-    const [ageGroup, setAgeGroup] = useState();
+  const [ageGroup, setAgeGroup] = useState();
 
     const selectAgeGroup = (e) => {
         const selectedAgeGroup = e.target.value;
@@ -11,9 +11,9 @@ export const AgeSpan = ({ updateFormData, value }) => {
   
   
     return (
-        <fieldset>
+        <fieldset className="radioContainer">
             <legend>How old are you?</legend>
-            <ul className="radioButtons">
+            <ul>
                 <li>
                     <label htmlFor="0-18">0-18</label>
                         <input 
