@@ -1,5 +1,5 @@
 export const ProgressBar = ({ currentStep }) => {
-  // Add
+  // Select percentage depending on current step
   let percentage = 0;
   switch (currentStep) {
     case 1:
@@ -17,10 +17,6 @@ export const ProgressBar = ({ currentStep }) => {
     default:
       percentage = 0;
   }
-
-  //   const fillerStyles = {
-  //     width: `${percentage}%`,
-  //   };
 
   return (
     <div className="progressContainer">
