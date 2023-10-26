@@ -30,13 +30,12 @@ export const SubQuestion = ({ value, continent, updateFormData }) => {
             questionText = "Default Question";
             labelText = "Default Label";
     }
-    // const [subquestionData, setSubquestionData] = useState({
-    //     value: value,
-    //     questionText: questionText,
-    //     labelText: labelText,
-    //   });
     
-      const subquestion = (e) => updateFormData("subquestion", e.target.value);
+    const subquestion = (e) => {
+        updateFormData("subquestion", e.target.value);
+        updateFormData("questionText", questionText);
+        updateFormData("labelText", labelText);
+      };
   
         return (
         <div className="slideContainer">

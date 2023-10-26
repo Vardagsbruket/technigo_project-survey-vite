@@ -11,6 +11,8 @@ export const MultiStepForm = () => {
     age: "",
     continent: "",
     subquestion: "",
+    questionText: "",
+    labelText: "",
   });
 
   const updateFormData = (key, value) => {
