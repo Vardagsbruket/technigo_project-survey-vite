@@ -135,3 +135,13 @@ fieldset {
 .radioContainer label {
   margin: 0 0.3em;
 }
+/* Summary page*/
+.summaryText {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px;
+  margin: auto;
+  max-width: 500px;
+  width: 100%;
+}
