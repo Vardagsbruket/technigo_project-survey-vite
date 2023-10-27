@@ -27,14 +27,14 @@ export const MultiStepForm = () => {
 
   // Function to move to the next step in the form
   const nextStep = () => {
-    if (currentStep < 5)
+    if (currentStep < 5) {
       if (formData.name === "") {
-        // Check that the name input is not empty
-        setError("Please enter a valid name");
+        setError("Please enter a name");
       } else {
         setError("");
         setCurrentStep(currentStep + 1);
       }
+    }
   };
 
   // Function to move to the previous step in the form
