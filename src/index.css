@@ -142,12 +142,36 @@ fieldset {
 .radioContainer label {
   margin: 0 0.3em;
 }
+/*Range slider*/
+.slideContainer {
+  max-width: 600px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  padding: 10px;
+}
+.slider {
+  -webkit-appearance: none;
+  height: 10px;
+  background-color: pink;
+  border-radius: 50px;
+  width: 100%;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: palevioletred;
+  border-radius: 50px;
+}
 
 /* progressbar */
 .progressContainer {
   height: 15px;
   width: 100%;
-  background-color: #e0e0de;
+  background-color: pink;
   border-radius: 50px;
   margin: 50;
 }
