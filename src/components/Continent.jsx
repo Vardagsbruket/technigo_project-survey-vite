@@ -10,19 +10,16 @@ export const Continent = ({ updateFormData, value }) => {
   };
 
   return (
-    <>
-      <h2>Which continent are you from?</h2>
-      <div className="selectContainer">
-        {/* Add label */}
-        <select value={selectedContinent} onChange={selectContinentGroup}>
-          <option value="">Select continent</option>
-          <option value="africa">Africa</option>
-          <option value="asia">Asia</option>
-          <option value="southamerica">South America</option>
-          <option value="northamerica">North America</option>
-          <option value="europe">Europe</option>
-        </select>
-      </div>
-    </>
+    <div className="selectContainer">
+      ¨<label htmlFor={selectedContinent}>Which continent are you from?</label>
+      <select value={selectedContinent} onChange={selectContinentGroup}>
+        <option value="">Select continent</option>
+        <option value="Africa">Africa</option>
+        <option value="Asia">Asia</option>
+        <option value="South America">South America</option>
+        <option value="North America">North America</option>
+        <option value="Europe">Europe</option>
+      </select>
+    </div>
   );
 };
