@@ -15,6 +15,8 @@ export const MultiStepForm = () => {
     questionText: "",
     labelText: "",
   });
+  // Error state
+  const [error, setError] = useState("");
 
   const updateFormData = (key, value) => {
     setFormData((values) => ({ ...values, [key]: value }));
@@ -25,7 +27,14 @@ export const MultiStepForm = () => {
 
   // Function to move to the next step in the form
   const nextStep = () => {
-    if (currentStep < 5) setCurrentStep(currentStep + 1);
+    if (currentStep < 5)
+      if (formData.name === "") {
+        // Check that the name input is not empty
+        setError("Please enter a valid name");
+      } else {
+        setError("");
+        setCurrentStep(currentStep + 1);
+      }
   };
 
   // Function to move to the previous step in the form
@@ -40,7 +49,6 @@ export const MultiStepForm = () => {
       age: formData.age,
       continent: formData.continent,
     };
-    console.log(submittedData);
     setCurrentStep(5);
   };
 
@@ -51,7 +59,12 @@ export const MultiStepForm = () => {
       <form>
         {/* Input field - add name */}
         {currentStep === 1 && (
-          <Name value={formData.name} updateFormData={updateFormData} />
+          <Name
+            value={formData.name}
+            updateFormData={updateFormData}
+            error={error}
+            setError={setError}
+          />
         )}
         {/* Radio buttons - select ageGroup */}
         {currentStep === 2 && (
@@ -74,9 +87,21 @@ export const MultiStepForm = () => {
         {currentStep === 5 && <Summary formData={formData} />}
       </form>
       <div className="buttons">
-        {currentStep > 1 && <button onClick={prevStep}>Back</button>}
-        {currentStep < 4 && <button onClick={nextStep}>Next</button>}
-        {currentStep === 4 && <button onClick={submitForm}>Submit</button>}
+        {currentStep > 1 && (
+          <button type="button" onClick={prevStep}>
+            Back
+          </button>
+        )}
+        {currentStep < 4 && (
+          <button type="button" onClick={nextStep}>
+            Next
+          </button>
+        )}
+        {currentStep === 4 && (
+          <button type="submit" onClick={submitForm}>
+            Submit
+          </button>
+        )}
       </div>
     </div>
   );
