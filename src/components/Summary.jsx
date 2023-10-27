@@ -1,6 +1,5 @@
 export const Summary = ({ formData }) => {
-  const { name, age, continent, questionText, subquestion, labelText } =
-    formData;
+  const { name, age, continent, questionText, subquestion, labelText } = formData;
 
   return (
     <>
