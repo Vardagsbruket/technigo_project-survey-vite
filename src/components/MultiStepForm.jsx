@@ -3,6 +3,7 @@ import { Name } from "./Name";
 import { AgeSpan } from "./AgeSpan";
 import { Summary } from "./Summary";
 import { Continent } from "./Continent";
+import { ProgressBar } from "./ProgressBar";
 import { SubQuestion } from "./SubQuestion";
 
 export const MultiStepForm = () => {
@@ -18,9 +19,6 @@ export const MultiStepForm = () => {
   const updateFormData = (key, value) => {
     setFormData((values) => ({ ...values, [key]: value }));
   };
-
-
-
 
   // State to track the current step in the form
   const [currentStep, setCurrentStep] = useState(1);
@@ -41,7 +39,6 @@ export const MultiStepForm = () => {
       name: formData.name,
       age: formData.age,
       continent: formData.continent,
-      subquestion: formData.subquestion,
     };
     console.log(submittedData);
     setCurrentStep(5);
@@ -49,8 +46,8 @@ export const MultiStepForm = () => {
 
   return (
     <div className="form-container">
+      <ProgressBar currentStep={currentStep} />
       <h1>Tell us about yourself 😃</h1>
-
       <form>
         {/* Input field - add name */}
         {currentStep === 1 && (
@@ -61,10 +58,17 @@ export const MultiStepForm = () => {
           <AgeSpan value={formData.age} updateFormData={updateFormData} />
         )}
         {currentStep === 3 && (
-          <Continent value={formData.continent} updateFormData={updateFormData} />
+          <Continent
+            value={formData.continent}
+            updateFormData={updateFormData}
+          />
         )}
         {currentStep === 4 && (
-            <SubQuestion continent={formData.continent} value={formData.subquestion} updateFormData={updateFormData} />
+          <SubQuestion
+            continent={formData.continent}
+            value={formData.subquestion}
+            updateFormData={updateFormData}
+          />
         )}
         {/* Summary page */}
         {currentStep === 5 && <Summary formData={formData} />}
@@ -77,5 +81,3 @@ export const MultiStepForm = () => {
     </div>
   );
 };
-
-
