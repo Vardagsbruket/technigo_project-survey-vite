@@ -1,27 +1,25 @@
-import { useState } from "react";
-
 export const SubQuestion = ({ value, continent, updateFormData }) => {
   let questionText;
   let labelText;
 
   switch (continent) {
-    case "africa":
+    case "Africa":
       questionText = "Have you seen many elephants?";
       labelText = "1 = none, 10 = plenty";
       break;
-    case "asia":
+    case "Asia":
       questionText = "Do you like sushi?";
       labelText = "1 = not so much, 10 = I love it!";
       break;
-    case "southamerica":
+    case "South America":
       questionText = "Do you speak spanish?";
       labelText = "1 = not at all, 10 = I'm a native speaker";
       break;
-    case "northamerica":
+    case "North America":
       questionText = "Do you you like american food?";
       labelText = "1 = not at all, 10 = I love it!";
       break;
-    case "europe":
+    case "Europe":
       questionText = "Do you prefer city or country side life?";
       labelText = "1 = cities are the best, 10 = the country side is my dream";
       break;

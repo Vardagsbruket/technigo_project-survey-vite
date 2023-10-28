@@ -1,5 +1,6 @@
 export const Summary = ({ formData }) => {
-  const { name, age, continent, questionText, subquestion, labelText } = formData;
+  const { name, age, continent, questionText, subquestion, labelText } =
+    formData;
 
   return (
     <>
@@ -9,7 +10,8 @@ export const Summary = ({ formData }) => {
           <b>{age} years old</b> and that you live in <b>{continent}</b>.
         </p>
         <p>
-          We then asked you <b>{questionText}</b> and you told us <b>{subquestion}</b>, on a scale where <b>{labelText}</b>
+          We then asked you <b>{questionText}</b> and you told us{" "}
+          <b>{subquestion}</b>, on a scale where <b>{labelText}</b>
         </p>
       </div>
     </>
